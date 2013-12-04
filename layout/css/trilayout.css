@@ -1,0 +1,25 @@
+*{
+padding: 0px;
+margin: 0px;
+}
+/***  rules for the header section ***/
+#head{
+height: 100px;
+width: 100%;
+border: 1px red solid;
+}
+
+
+/*** Rules for the Main div ***/
+#main{
+height: 500px;
+width: 100%;
+border: 1px green solid;
+}
+
+/*** rules for the Footer div ***/
+#footer{
+height: 100px;
+width: 100%;
+border: 1px blue solid;
+}

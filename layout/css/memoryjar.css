@@ -1,0 +1,19 @@
+                            /*** rules for memory jar ***/
+                            
+                            
+/*** rules for the head subsections ***/
+#head_acct{
+height: 20px;
+background-color: red;
+width: 100%;
+}
+#head_logo{
+height: 40px;
+width: 100%;
+background-color: blue;
+}
+#head_nav{
+height: 40px;
+width: 100%;
+background-color: green;
+}
