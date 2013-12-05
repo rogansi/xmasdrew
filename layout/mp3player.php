@@ -7,8 +7,8 @@
 </head>
 <body>
 <a href="sounds/test.mp3" 
-target="_blank" onclick="javascript:BatmoAudioPop('Mp3 Example','sounds/test.mp3','1'); 
-return false">
-<img src = "images/gaga.jpeg" alt = "gaga" /> </a>
+target="_blank" onclick="javascript:BatmoAudioPop('Mp3 Example','images/salvation.jpg','252','180','',this.href,'1');return false">
+<img src = "images/salvation.jpg" alt = "gaga" /></a>
 </body>
 </html>
+

@@ -2,43 +2,36 @@
 // Version 2006-05-31 
 // OK to use if this notice is included
    
-function BatmoAudioPop(filedesc,filepath,WindowNumber) {
-   // Get Operating System 
-   var isWin = navigator.userAgent.toLowerCase().indexOf("windows") !=-1
-   if (isWin) { // Use MIME type = "application/x-mplayer2"
-      visitorOS="Windows";
-   } 
-   else { // Use MIME type = "audio/mpeg"; // or audio/x-wav or audio/x-ms-wma, etc.
-      visitorOS="Other";
-   }
+function BatmoAudioPop(popuptitle,imgpath,imgwidth,imgheight,caption,soundpath,UniqueID) { // Add error handling?
+	var myCap = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+    var winWidth  = Number(imgwidth) + 100;
+    var rawHeight = Number(imgheight) + 168 + caption.length/7; // calculate window height based on caption length
+    var winHeight = Math.round(rawHeight * Math.pow(10,0))/Math.pow(10,0); // round to integer
+    
+    MediaWin = window.open('',UniqueID,'width=' + winWidth + ',height=' + winHeight + ',top=0,left=0,resizable=1,scrollbars=0,titlebar=0,toolbar=0,menubar=0,status=0,directories=0,personalbar=0,location=0');
+    MediaWin.focus();
+    
+    var winContent = "<html><head><title>" + popuptitle + "</title></head>";
+    winContent += "<body bgcolor='#9E9E9E' background='/images/oreilly/digitalmedia/2005/10/metal_tile.jpg'>"; // check image path
+    winContent += "<div align='center'>";
+    winContent += "<br /><br />"; // could use CSS padding instead
+    winContent += "<img src='" + imgpath + "' id='image1' border='2' alt='" + popuptitle + "' width='" + imgwidth + "' height='" + imgheight + " 'title='" + popuptitle + "' />";
+    winContent += "<br />";
+    winContent += "<object width='" + imgwidth + "' height='70' >";
+    winContent += "<param name='src' value='" + soundpath + "'>";
+    winContent += "<param name='autoplay' value='1'>";
+    winContent += "<param name='controller' value='1'>";
+    winContent += "<param name='bgcolor' value='#9e9e9e'>";
+    winContent += "<embed src ='" + soundpath + "' autostart='1' loop='0' width='" + imgwidth + "' height='70' controller='1' bgcolor='#9e9e9e'>";
+    winContent += "</embed></object>";
+    winContent += "<div style='width: " + imgwidth + "px; margin: 0px; padding: 0px; text-align:left;'>"; // restrict caption width to image width
+    winContent += "<p style='font-size:12px;font-family:Verdana,sans-serif'>" + myCap + "</p>";
+    winContent += "</div>";
+    winContent += "<p style='font-size:12px;font-family:Verdana,sans-serif'><a href='" + soundpath + "'>Download audio file</a> <span style='font-size:10px'>(right-click or Option-click)</span>";
+    winContent += " &#8226; <a href='#' onClick='javascript:window.close();'>Close this window</a></p>";
+    winContent += "</div>";
+    winContent += "</body></html>";
 
-   // Get the MIME type of the audio file from its extension (for non-Windows browsers)
-   var mimeType = "audio/mpeg"; // assume MP3/M3U
-   var objTypeTag = "application/x-mplayer2"; // The Windows MIME type to load the WMP plug-in in Firefox, etc.
-   var theExtension = filepath.substr(filepath.lastIndexOf('.')+1, 3); // truncates .aiff to aif
-   if (theExtension.toLowerCase() == "wav") { mimeType = "audio/x-wav"};
-   if (theExtension.toLowerCase() == "aif") { mimeType = "audio/x-aiff"};    
-   if (theExtension.toLowerCase() == "wma") { mimeType = "audio/x-ms-wma"};
-   if (theExtension.toLowerCase() == "mid") { mimeType = "audio/mid"};
-   // Add additional MIME types as desired
-   
-   if (visitorOS != "Windows") { objTypeTag = mimeType; // audio/mpeg, audio/x-wav, audio/x-ms-wma, etc.};
-      PlayerWin = window.open('',WindowNumber,'width=320,height=217,top=0,left=0,screenX=0,screenY=0,resizable=0,scrollbars=0,titlebar=0,toolbar=0,menubar=0,status=0,directories=0');
-      PlayerWin.parent.focus();
-      PlayerWin.document.writeln("<html><head><title>" + filedesc + "</title></head>");
-      PlayerWin.document.writeln("<body bgcolor='#9999ff'>"); // specify background img if desired
-      PlayerWin.document.writeln("<div align='center'>");
-      PlayerWin.document.writeln("<b style ='font-size:18px;font-family:Lucida,sans-serif;line-height:1.6'>" + filedesc + "</b><br />");
-      PlayerWin.document.writeln("<object width='280' height='69'>");
-      PlayerWin.document.writeln("<param name='src' value='" + filepath + "'>");
-      PlayerWin.document.writeln("<param name='type' value='" + objTypeTag + "'>");
-      PlayerWin.document.writeln("<param name='autostart' value='1'>");
-      PlayerWin.document.writeln("<param name='showcontrols' value='1'>");    
-      PlayerWin.document.writeln("<param name='showstatusbar' value='1'>");
-      PlayerWin.document.writeln("<embed src ='" + filepath + "' type='" + objTypeTag + "' autoplay='true' width='280' height='69' controller='1' showstatusbar='1' bgcolor='#9999ff' kioskmode='true'>");
-      PlayerWin.document.writeln("</embed></object></div>");
-      PlayerWin.document.writeln("<p style='font-size:12px;font-family:Lucida,sans-serif;text-align:center'><a href='" + filepath +"'>Download this file</a> <span style='font-size:10px'>(right-click    or Control-click)</span></p>");
-      PlayerWin.document.writeln("<form><div align='center'><input type='button' value='Close this window' onclick='javascript:window.close();'></div></form>");
-      PlayerWin.document.writeln("</body></html>");
-      PlayerWin.document.close(); // "Finalizes" new window
+    MediaWin.document.write(winContent);
+    MediaWin.document.close(); // "Finalizes" new window
 }
