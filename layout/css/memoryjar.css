@@ -17,3 +17,28 @@ height: 40px;
 width: 100%;
 background-color: green;
 }
+/** rules for the Main ***/
+#main{
+	background-color:gray;
+}
+/***  Rules for the Memories ***/
+.singlemem{
+	width: 300px;
+	border: inset black 3px;
+	box-shadow: 10px 10px 5px #222222;
+    background-color: rgba(255,255,255,0.5);
+}
+.singlemem p{
+	padding-right: 5px;
+	padding-left: 5px;
+}
+.singlemem_title{
+	font-size: large;
+	text-align: center;
+	padding-bottom: 10px;
+	padding-top: 5px;
+}
+/** rules for memLinks **/
+.memlink{
+	text-shadow: 1px 1px 1px #Fafafa;
+}

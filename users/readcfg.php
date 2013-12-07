@@ -13,5 +13,8 @@ $host=$init_vars['connection information']['server'];
 $username=$init_vars['connection information']['username'];
 $database=$init_vars['connection information']['db'];
 $password=$init_vars['connection information']['password'];
-
+/** jquery variables **/
+$jquery_link = "<script src = \"".$init_vars['header information']['jquery']."\" type = \"text/javascript\"></script>";
+$jqueryui_link = "<script src = \"".$init_vars['header information']['jquery_ui_script']."\" type = \"text/javascript\"></script>";
+$jqueryui_style = '<link href = "layout/scripts/'.$init_vars['header information']['jquery_ui_style'].'" type="text/css" rel = "stylesheet"/>';
 ?>
