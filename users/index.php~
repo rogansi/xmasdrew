@@ -1,5 +1,6 @@
 <?php 
 require('readcfg.php');
+
 ?>
 <html>
 <head>
