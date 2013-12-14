@@ -1,5 +1,5 @@
 <?php 
-require('users/readcfg.php');
+include('users/readcfg.php');
 ?>
 <html>
 <head>

@@ -3,9 +3,16 @@ require('users/readcfg.php');
 ?>
 <html>
 <head>
+	
 <title><?php echo $title;?></title>
-<?php echo $stylelink;?>
-<?php echo $layoutlink;?>
+<?php 
+      echo $stylelink;
+      echo $layoutlink;
+      echo $jquery_link;
+	  echo $jqueryui_link;
+      echo $jqueryui_style;
+	  
+?>
 </head>
 <body>
 
@@ -17,13 +24,7 @@ require('users/readcfg.php');
 
 <div id = "main">
 <?php
-$query = "SELECT * FROM users";
-$conn = mysqli_connect($host, $username, $password, $database);
-$result = mysqli_query($conn, $query) or die (mysqli_error($conn));
-while($row = mysqli_fetch_assoc($result)){
-		extract($row);
-		echo $username;
-	}
+include("users/singlememory.php");
 ?>
 </div>
 
