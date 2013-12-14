@@ -1,0 +1,8 @@
+<?php
+//$init_vars = parse_ini_file('../config/memoryjar.cfg',true);
+$host="localhost";
+$memusername="guest";
+$database="memoryjar";
+$mempassword="n"."ot-Beckett1320";
+$conn = mysqli_connect($host,$memusername,$mempassword,$database);
+?>

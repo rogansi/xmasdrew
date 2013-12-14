@@ -9,10 +9,6 @@ $stylelink = '<link href = "../layout/css/'.'trilayout.css'.'" type="text/css" r
 
 $layoutlink = '<link href = "../layout/css/'.$stylesheet.'" type="text/css" rel = "stylesheet"/>';
 
-$host=$init_vars['connection information']['server'];
-$username=$init_vars['connection information']['username'];
-$database=$init_vars['connection information']['db'];
-$password=$init_vars['connection information']['password'];
 /** jquery variables **/
 $jquery_link = "<script src = \"../".$init_vars['header information']['jquery']."\" type = \"text/javascript\"></script>";
 $jqueryui_link = "<script src = \"../".$init_vars['header information']['jquery_ui_script']."\" type = \"text/javascript\"></script>";
