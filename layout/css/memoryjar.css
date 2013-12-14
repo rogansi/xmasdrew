@@ -40,8 +40,10 @@ background-color: green;
 }
 /** rules for memLinks **/
 .memlink{
+	width: 200px;
 	color: #444444;
 }
 .memlink2{
-text-shadow: 0px 0px 3px red, 0px 0px 2px orange, 0px 0px 1px #Fafafa;
+	width: 200px;
+text-shadow: 0px 0px 3px #ffffff, 0px 0px 2px #00aaee, 0px 0px 1px #Fafafa;
 }

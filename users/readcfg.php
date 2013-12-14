@@ -1,7 +1,8 @@
 <?php
 $init_vars = parse_ini_file('../config/memoryjar.cfg',true);
 $title = $init_vars['header information']['title'];
-$stylesheet = $init_vars['header information']['stylelink'];
+$stylesheet = $init_vars['header information']['stylesheet'];
+$corejs = "<script src = \"../layout/scripts/".$init_vars['header information']['javascript']."\" type = \"text/javascript\"></script>";
 
 if($init_vars['header information']['layouttype']=='1'){
 $stylelink = '<link href = "../layout/css/'.'trilayout.css'.'" type="text/css" rel = "stylesheet"/>';
