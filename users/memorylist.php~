@@ -1,5 +1,6 @@
 <?php
 include('db_stats.php');
 include('memory.php');
-loadMemoryLinks();
+loadMemoryLinks($conn);
+echo "<script>setupLayout();</script>";
 ?>

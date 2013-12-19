@@ -21,12 +21,12 @@ $.ajax({
     		$("#test").html(result);
     	});
 }
-function setMemory(memTitle){
+    function setMemory(memTitle){
     	$.ajax({
     		type: "POST",
             url: "singlememory.php",
             data: {'title':memTitle}
-    	 }).done(function(result){
+    	      }).done(function(result){
     		$("#test").html(result);
     	});
 }
@@ -38,7 +38,4 @@ function listMemorys(){
     	}).done(function(result){
     		$("#test").html(result);
     	});
-}
-function loadPicForm(){
-	$("#test").load("picForm.html");
 }
