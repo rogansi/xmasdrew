@@ -25,6 +25,11 @@ while($row = mysqli_fetch_assoc($result)){
 		extract($row);
 	    echo "<div class = 'singlemem'>";
 		echo "<p class = 'singlemem_title'>".$title."</p>";
+		if($picture==null){
+			echo "<p>No Picture</p>";
+		}else{
+		echo "<p class = 'singlemem_image'><img src = '../layout/images/".$picture.".jpg' height = '50' width = '75' alt = 'pic' /></p>";
+	   }
 		echo "<p class = 'singlemem_body'>".$body."</p>";
 		echo "<p class = 'singlemem_sig'>".$fname."</p>";
 		echo "</div>";
