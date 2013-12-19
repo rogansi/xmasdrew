@@ -31,3 +31,6 @@ function listMemorys(){
     		$("#test").html(result);
     	});
 }
+function loadPicForm(){
+	$("#test").load("picForm.html");
+}

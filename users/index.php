@@ -33,7 +33,7 @@ require('readcfg.php');
 </div>
 
 <div id = "footer">
-<button onclick = 'listMemorys()'>Press Me</button>
+<button onclick = 'loadPicForm()'>Press Me</button>
 </div>
 </body>
 
