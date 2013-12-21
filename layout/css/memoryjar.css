@@ -21,6 +21,14 @@ background-color: green;
 #main{
 	background-color:gray;
 }
+#interactive{
+	float: left;
+	
+}
+#userNav{
+	width: 400px;
+	float: left;
+}
 /***  Rules for the Memories ***/
 .singlemem{
 	width: 300px;

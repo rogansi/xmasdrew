@@ -1,5 +1,6 @@
 <?php 
 require('readcfg.php');
+session_start();
 //require_once('memory.php');
 ?>
 <html>
@@ -26,16 +27,20 @@ require('readcfg.php');
 </div>
 
 <div id = "main">
-	<div id = "formTest">
+	<div id = "userNav">
+	      <div id = "formTest">
+		
+	      </div>
+	      <div id = "loginTest">
+		
+	      </div>
+	      <div id = "test">
+		
+	      </div>
+	</div>
+	<div id = "interactive">
 		
 	</div>
-	<div id = "loginTest">
-		
-	</div>
-	<div id = "test">
-		
-	</div>
-	
 </div>
 
 <div id = "footer">

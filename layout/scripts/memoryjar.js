@@ -2,6 +2,7 @@ $(init);
 function init(){
 	$("#formTest").load("picForm.html");
 	$("#loginTest").load("loginForm.html");
+	
 }
 
 function setupLayout(){
@@ -94,4 +95,7 @@ function editMemory(memTitle){
     	 }).done(function(result){
     		$("#test").html(result);
     	});
+}
+function addPhoto(){
+	$("#interactive").load("../config/uploader/index.html");
 }
