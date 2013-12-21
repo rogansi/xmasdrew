@@ -26,6 +26,12 @@ require('readcfg.php');
 </div>
 
 <div id = "main">
+	<div id = "formTest">
+		
+	</div>
+	<div id = "loginTest">
+		
+	</div>
 	<div id = "test">
 		
 	</div>
@@ -33,11 +39,7 @@ require('readcfg.php');
 </div>
 
 <div id = "footer">
-<<<<<<< HEAD
-<button onclick = 'loadPicForm()'>Press Me</button>
-=======
 
->>>>>>> 9b2e6384db14e74fd0a8a4850c09642e9c8b481c
 </div>
 </body>
 

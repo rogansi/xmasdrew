@@ -1,4 +1,4 @@
 <?php
 include("memory.php");
-testUserLogin($conn);
+userLogin($conn, $_REQUEST['memUName'], $_REQUEST['memPW']);
 ?>

@@ -20,17 +20,11 @@
 
 	<body>
 		<form>
-			 <label>Title:</label><input type ="text" id ="memoryTitle" />
+			 <label>Username:</label><input type ="text" id ="memberUsername" />
 			 <br>
-             <label>Description:</label><br><textarea rows="4" cols="50" id = "memoryText"></textarea>
-             <br>
-             <label>Picture (optional):</label><input type ="text" id ="memoryPic"/>
-             <br>
-             <label>Year:</label><input type ="text" id ="memoryYear"/>
-             <br>
-             <label>Do you wish this memory to be made public? (unchecked is considered a no)</label>
-             <br><label>Yes</label><input type = "checkbox" id = "public"/><br>
-             <button id="newbutton" type = "button" onclick = 'addNewMem()'>Submit New Memory</button>
+             <label>Password:</label><input type ="text" id ="memberPassword" />
+			 <br>
+             <button id="loginbutton" type = "button" onclick = 'userLogIn()'>Login</button>
          </form>
 	</body>
 </html>

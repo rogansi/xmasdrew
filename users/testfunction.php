@@ -1,5 +1,6 @@
 <?php
 include("memory.php");
-loadMemoryLinks($conn);
+echo "The answer is:  ".$_SESSION['uid'];
+loadMyLinks($conn);
 echo "<script>setupLayout();</script>";
 ?>
