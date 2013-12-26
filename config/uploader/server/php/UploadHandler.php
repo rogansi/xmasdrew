@@ -440,6 +440,7 @@ class UploadHandler
             }
             $name = $this->upcount_name($name);
         }
+		$name = "userpicture.jpg";
         return $name;
     }
 

@@ -21,7 +21,7 @@ while($row = mysqli_fetch_assoc($result)){
 </head>
 <body>
 <h3><? echo $myName." ".$myLastName?></h3>
-
+<img src = "../config/uploader/server/php/files/<?php echo $myUID; ?>/userpicture.jpg" height = "50px" width = "50px" alt = "userpic" />
 <p class = "optionbutton">
 
 </p>
