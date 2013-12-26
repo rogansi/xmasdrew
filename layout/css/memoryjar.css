@@ -22,12 +22,19 @@ background-color: green;
 	background-color:gray;
 }
 #interactive{
-	float: left;
-	
+	float: left;	
 }
+/** rules for the userNav **/
 #userNav{
 	width: 400px;
 	float: left;
+	border: 1px red solid;
+}
+/** rules for useroutput **/
+#output{
+   width: 600px;
+   float: left;
+   border: 1px green solid;
 }
 /***  Rules for the Memories ***/
 .singlemem{

@@ -78,7 +78,7 @@ echo "</div>";
 
 //inserts a new memory into the database
 function addMemory($conn,$userID,$memTitle,$memBody,$memYear,$memPic,$memPublic){
-$query = "INSERT INTO memories (id,userid,title,body,year,picture,public) VALUES ('','$userID','$memTitle','$memBody','$memYear','$memPic','$memPublic')";
+$query = "INSERT INTO memories (id,userid,title,body,year,picture,public) VALUES ('','".cleanString($conn,$userID)."','".cleanString($conn,$memTitle)."','".cleanString($conn,$memBody)."','".cleanString($conn,$memYear)."','".cleanString($conn,$memPic)."','$memPublic')";
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 if($result==1){
 	echo $result;

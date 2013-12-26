@@ -28,7 +28,10 @@ session_start();
 
 <div id = "main">
 	<div id = "userNav">
-	      <div id = "formTest">
+	      
+	</div>
+	<div id = "output">
+	<div id = "formTest">
 		
 	      </div>
 	      <div id = "loginTest">

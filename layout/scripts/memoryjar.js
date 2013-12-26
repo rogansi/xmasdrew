@@ -48,6 +48,9 @@ function listMemorys(){
 function loadPicForm(){
 	$("#test").load("picForm.html");
 }
+function addPhoto2(){
+	
+}
 //Logs a user in
 function userLogIn(){
 	var memberUname = $("#memberUsername").val();
@@ -59,7 +62,11 @@ function userLogIn(){
             url: "usrLogin.php",
             data: {'memUName':memberUname,'memPW':memberPW}
     	}).done(function(result){
-    		alert(result);
+    		if(result != "Invalid"){
+    		    $("#userNav").load("../layout/userhome.php");
+    		}else{
+    		    alert("Invalid");
+    		}
     	});
 }
 //adds a new memory into the database

@@ -21,6 +21,14 @@ background-color: green;
 #main{
 	background-color:gray;
 }
+#interactive{
+	float: left;
+	
+}
+#userNav{
+	width: 400px;
+	float: left;
+}
 /***  Rules for the Memories ***/
 .singlemem{
 	width: 300px;
@@ -40,8 +48,10 @@ background-color: green;
 }
 /** rules for memLinks **/
 .memlink{
-	color: #333333;
+	width: 200px;
+	color: #444444;
 }
 .memlink2{
-text-shadow: 0px 0px 3px red, 0px 0px 2px orange, 0px 0px 1px #Fafafa;
+	width: 200px;
+text-shadow: 0px 0px 3px #ffffff, 0px 0px 2px #00aaee, 0px 0px 1px #Fafafa;
 }

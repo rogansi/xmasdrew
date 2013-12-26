@@ -1,5 +1,6 @@
 <?php 
 require('readcfg.php');
+session_start();
 //require_once('memory.php');
 ?>
 <html>
@@ -13,7 +14,6 @@ require('readcfg.php');
       echo $jquery_link;
 	   echo $jqueryui_link;
       echo $jqueryui_style;
-      
 	   echo $corejs;
 ?>
 
@@ -27,10 +27,23 @@ require('readcfg.php');
 </div>
 
 <div id = "main">
-	<div id = "test">
+	<div id = "userNav">
+	      
+	</div>
+	<div id = "output">
+	<div id = "formTest">
+		
+	      </div>
+	      <div id = "loginTest">
+		
+	      </div>
+	      <div id = "test">
+		
+	      </div>
+	</div>
+	<div id = "interactive">
 		
 	</div>
-	
 </div>
 
 <div id = "footer">

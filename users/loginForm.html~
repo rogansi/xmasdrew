@@ -9,7 +9,7 @@
 
 		<title>HTML</title>
 		<meta name="description" content="">
-		<meta name="author" content="root" >
+		<meta name="author" content="tap26_admin">
 
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
         
@@ -25,8 +25,7 @@
              <label>Password:</label><input type ="text" id ="memberPassword" />
 			 <br>
              <button id="loginbutton" type = "button" onclick = 'userLogIn()'>Login</button>
-             <br><button id="picturebutton" type = "button" onclick = 'addPhoto()'>Add Image</button>
-             <button id="newpicturebutton" type = "button" onclick = 'addPhoto2()'>Add Next Image</button>
+             <button id="picturebutton" type = "button" onclick = 'addPhoto()'>Add Image</button>
          </form>
 	</body>
 </html>
