@@ -62,7 +62,22 @@ while($row = mysqli_fetch_assoc($result)){
 	}
 echo "</div>";
 }
-
+//loads all public memories
+function loadPublicMemories($conn){
+$tmpID = $_SESSION['uid'];
+$query = "SELECT * FROM memories WHERE public = 1 OR userid = '$tmpID'";
+$result = mysqli_query($conn, $query) or die (mysqli_error($conn));
+echo "<div class = 'memtitle'>";
+while($row = mysqli_fetch_assoc($result)){
+		extract($row);
+	    if($userid==$tmpID){
+		echo "<h2 class = 'memlink' onclick = \"editMemory('".cleanString($conn,$title)."')\">".stripslashes($title)."</h2><br>";
+		}else{
+		echo "<h2 class = 'memlink' onclick = \"singleMemory('".cleanString($conn,$title)."')\">".stripslashes($title)."</h2><br>";
+		}
+	}
+echo "</div>";
+}
 //grabs a list of all memories from the database, and creates a link for each one to display a single memory.
 function loadMemoryLinks($conn){
 $retHTML = "";
@@ -117,6 +132,16 @@ function resetPW($conn,$userID,$newPW){
 }
 function testResetPW($conn){
 	resetPW($conn,3,"Guest");
+}
+//adds a comment into the comments table
+function insertComment($conn,$userID,$memID,$newTitle,$newBody){
+	$query = "INSERT into comments (userid,memoryid,commentTitle,commentBody) VALUES ('".cleanString($conn,$userID)."','".cleanString($conn,$memID)."','".cleanString($conn,$newTitle)."','".cleanString($conn,$newBody)."')";
+	$result = mysqli_query($conn, $query) or die (mysqli_error($conn));
+      if($result==1){
+	echo $result;
+      }else{
+    echo "Something went wrong";
+      }
 }
 //adds slashes before dangerous special chars and returns the new string
 function cleanString($conn,$string){

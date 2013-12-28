@@ -36,6 +36,16 @@ function setMemory(memTitle){
     		$("#test").html(result);
     	});
 }
+//loads all public functions as well as those of the user
+function loadPublicMemories(){
+	$.ajax({
+    		type: "POST",
+            url: "loadPublicMemories.php",
+            data: {}
+    	}).done(function(result){
+    		$("#test").html(result);
+    	});
+}
 function listMemorys(){
     	$.ajax({
     		type: "POST",
@@ -94,11 +104,22 @@ function addNewMem(){
     		$("#test").html(result);
     	});
 }
+//Loads a memory in a form that is editable
 function editMemory(memTitle){
     	$.ajax({
     		type: "POST",
             url: "editMemory.php",
             data: {'editTitle':memTitle}
+    	 }).done(function(result){
+    		$("#test").html(result);
+    	});
+}
+//loads a single memory in read only form
+function singleMemory(singleTitle){
+	$.ajax({
+    		type: "POST",
+            url: "singlememory.php",
+            data: {'singleTitle':singleTitle,'title':singleTitle}
     	 }).done(function(result){
     		$("#test").html(result);
     	});
