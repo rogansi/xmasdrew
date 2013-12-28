@@ -104,5 +104,5 @@ function editMemory(memTitle){
     	});
 }
 function addPhoto(){
-	$("#interactive").load("../config/uploader/index.html");
+	$("#interactive").load("../plupload-2.1.0/examples/custom.php");
 }
