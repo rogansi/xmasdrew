@@ -20,7 +20,7 @@ if(isset($_REQUEST['title'])){
 	$memTitle = "The Dream...";
 }
 $memTitle = addslashes($memTitle);
-$query = "SELECT * FROM memories INNER JOIN users ON memories.userid = users.id WHERE title = '$memTitle'";
+$query = "SELECT * FROM memories INNER JOIN users ON memories.userid = users.userid WHERE title = '$memTitle'";
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 while($row = mysqli_fetch_assoc($result)){
 		extract($row);
@@ -40,13 +40,13 @@ while($row = mysqli_fetch_assoc($result)){
 function editMemory($conn){
 $memTitle = $_REQUEST['editTitle'];
 $memTitle = addslashes($memTitle);
-$query = "SELECT * FROM memories INNER JOIN users ON memories.userid = users.id WHERE title = '$memTitle'";
+$query = "SELECT * FROM memories INNER JOIN users ON memories.userid = users.userid WHERE title = '$memTitle'";
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 while($row = mysqli_fetch_assoc($result)){
 		extract($row);
-		echo "<label>Title</label><input type = 'text' value =\"".$title."\"/><br>";
-		echo "<label>Body</label><br><textarea rows = '8' cols = '50'>".$body."</textarea><br>";
-		echo "<button>Save Changes</button>";
+		echo "<label>Title</label><input type id = 'editMeTitle' = 'text' value =\"".$title."\"/><br>";
+		echo "<label>Body</label><br><textarea id = 'editMeBody' rows = '8' cols = '50'>".$body."</textarea><br>";
+		echo "<button onclick = 'updatememory(\"".$memoryid."\")'>Save Changes</button>";
 	}
 }
 //loads memories of one user
@@ -90,17 +90,32 @@ while($row = mysqli_fetch_assoc($result)){
 	}
 echo "</div>";
 }
+//inserts a prepared memory into the database
+function addMemoryPrep($conn,$userID,$memTitle,$memBody,$memYear,$memPic,$memPublic){
+	$query = "INSERT INTO memories (memoryid,userid,title,body,year,picture,public) VALUES('',?,?,?,?,?,?)";
+	$stmt = mysqli_prepare($conn,$query);
+	mysqli_stmt_bind_param($stmt,'ssssss',$userID,$memTitle,$memBody,$memYear,$memPic,$memPublic);
+	mysqli_stmt_execute($stmt);
+}
+//updates an existing memory
+function updateMemory($conn,$memID,$memTitle,$memBody){
+	$query = "UPDATE memories SET title=?, body=? WHERE memoryid=?";
+	$stmt = mysqli_prepare($conn,$query);
+	mysqli_stmt_bind_param($stmt, 'sss',$memTitle,$memBody,$memID);
+	mysqli_stmt_execute($stmt);
+}
+//inserts a new memory into the database --OLD DO NOT USE
+//function addMemory($conn,$userID,$memTitle,$memBody,$memYear,$memPic,$memPublic){
+//$query = "INSERT INTO memories (id,userid,title,body,year,picture,public) VALUES ('','".cleanString($conn,$userID)."','".cleanString($conn,$memTitle)."','".cleanString($conn,$memBody)."','".cleanString($conn,$memYear)."','".cleanString($conn,$memPic)."','$memPublic')";
+//$result = mysqli_query($conn, $query) or die (mysqli_error($conn));
+//if($result==1){
+//	echo $result;
+//}else{
+//    echo "Something went wrong";
+//}
+//}
 
-//inserts a new memory into the database
-function addMemory($conn,$userID,$memTitle,$memBody,$memYear,$memPic,$memPublic){
-$query = "INSERT INTO memories (id,userid,title,body,year,picture,public) VALUES ('','".cleanString($conn,$userID)."','".cleanString($conn,$memTitle)."','".cleanString($conn,$memBody)."','".cleanString($conn,$memYear)."','".cleanString($conn,$memPic)."','$memPublic')";
-$result = mysqli_query($conn, $query) or die (mysqli_error($conn));
-if($result==1){
-	echo $result;
-}else{
-    echo "Something went wrong";
-}
-}
+
 //checks users supplied password and name against the database, if valid, stores their userid in $_REQUEST['uid]
 function userLogin($conn,$uname,$ps){
 	$cleanPW = cleanString($conn,$ps);
@@ -113,7 +128,7 @@ function userLogin($conn,$uname,$ps){
 	}else{
 	while($row = mysqli_fetch_assoc($result)){
 		extract($row);
-		$_SESSION['uid'] = $id;
+		$_SESSION['uid'] = $userid;
 	}
 	echo $_SESSION['uid'];
 	}

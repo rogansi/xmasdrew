@@ -1,7 +1,7 @@
 $(init);
 function init(){
-	$("#formTest").load("picForm.html");
-	$("#loginTest").load("loginForm.html");
+	$("#formTest").load("users/picForm.html");
+	$("#loginTest").load("users/loginForm.html");
 	
 }
 
@@ -14,14 +14,14 @@ function setupLayout(){
 	});
 }
 function loadMemList(){
-$.post("memorylist.php",function(data){
+$.post("users/memorylist.php",function(data){
 	$("#test").html(data);
 });
 }
 function testPHPfunction(){
 $.ajax({
     		type: "POST",
-            url: "testfunction.php",
+            url: "users/testfunction.php",
             data: {}
     	}).done(function(result){
     		$("#test").html(result);
@@ -30,7 +30,7 @@ $.ajax({
 function setMemory(memTitle){
     	$.ajax({
     		type: "POST",
-            url: "singlememory.php",
+            url: "users/singlememory.php",
             data: {'title':memTitle}
     	 }).done(function(result){
     		$("#test").html(result);
@@ -40,7 +40,7 @@ function setMemory(memTitle){
 function loadPublicMemories(){
 	$.ajax({
     		type: "POST",
-            url: "loadPublicMemories.php",
+            url: "users/loadPublicMemories.php",
             data: {}
     	}).done(function(result){
     		$("#test").html(result);
@@ -49,14 +49,14 @@ function loadPublicMemories(){
 function listMemorys(){
     	$.ajax({
     		type: "POST",
-            url: "memorylist.php",
+            url: "users/memorylist.php",
             data: {}
     	}).done(function(result){
     		$("#test").html(result);
     	});
 }
 function loadPicForm(){
-	$("#test").load("picForm.html");
+	$("#test").load("users/picForm.html");
 }
 function addPhoto2(){
 	
@@ -69,14 +69,26 @@ function userLogIn(){
 	
 	$.ajax({
     		type: "POST",
-            url: "usrLogin.php",
+            url: "users/usrLogin.php",
             data: {'memUName':memberUname,'memPW':memberPW}
     	}).done(function(result){
     		if(result != "Invalid"){
-    		    $("#userNav").load("../layout/userhome.php");
+    		    $("#userNav").load("layout/userhome.php");
     		}else{
     		    alert("Invalid");
     		}
+    	});
+}
+//updates a memory in the database
+function updatememory(memID){
+	var newTitle =$("#editMeTitle").val();
+	var newBody =$("#editMeBody").val();
+	$.ajax({
+    		type: "POST",
+            url: "users/updateMemory.php",
+            data: {'title':newTitle,'body':newBody,'memID':memID}
+    	}).done(function(result){
+    		$("#test").html(result);
     	});
 }
 //adds a new memory into the database
@@ -98,7 +110,7 @@ function addNewMem(){
 	alert(memPublic);
 	$.ajax({
     		type: "POST",
-            url: "addmemory.php",
+            url: "users/addmemory.php",
             data: {'title':memTitle,'body':memBody,'year':memYear,'picture':memPic,'public':memPublic}
     	}).done(function(result){
     		$("#test").html(result);
@@ -108,7 +120,7 @@ function addNewMem(){
 function editMemory(memTitle){
     	$.ajax({
     		type: "POST",
-            url: "editMemory.php",
+            url: "users/editMemory.php",
             data: {'editTitle':memTitle}
     	 }).done(function(result){
     		$("#test").html(result);
@@ -118,12 +130,12 @@ function editMemory(memTitle){
 function singleMemory(singleTitle){
 	$.ajax({
     		type: "POST",
-            url: "singlememory.php",
+            url: "users/singlememory.php",
             data: {'singleTitle':singleTitle,'title':singleTitle}
     	 }).done(function(result){
     		$("#test").html(result);
     	});
 }
 function addPhoto(){
-	$("#interactive").load("../plupload-2.1.0/examples/custom.php");
+	$("#interactive").load("../xmasdrew/plupload-2.1.0/examples/custom.php");
 }

@@ -40,7 +40,7 @@ var uploader = new plupload.Uploader({
 	runtimes : 'html5,flash,silverlight,html4',
 	browse_button : 'pickfiles', // you can pass in id...
 	container: document.getElementById('container'), // ... or DOM Element itself
-	url : 'plupload-2.1.0/examples/upload.php',
+	url : 'plupload-2.1.0/examples/memoryupload.php',
 	flash_swf_url : '../js/Moxie.swf',
 	silverlight_xap_url : '../js/Moxie.xap',
 	

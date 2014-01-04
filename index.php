@@ -1,33 +1,54 @@
 <?php 
-include('users/readcfg.php');
+require('users/readcfg.php');
+session_start();
+//require_once('memory.php');
 ?>
 <html>
 <head>
-	
+
 <title><?php echo $title;?></title>
 <?php 
-      echo $stylelink;
+      
+	   echo $stylelink;
       echo $layoutlink;
       echo $jquery_link;
-	  echo $jqueryui_link;
+	   echo $jqueryui_link;
       echo $jqueryui_style;
-	  
+	   echo $corejs;
 ?>
+
 </head>
 <body>
 
 <div id = "head">
      <div id = "head_acct"></div>
-     <div id = "head_logo"></div>
+     <div id = "head_logo"><button onclick = 'testPHPfunction()'>Press Me</button></div>
      <div id = "head_nav"></div>
 </div>
 
 <div id = "main">
-<?php
-include("users/singlememory.php");
-?>
+	<div id = "userNav">
+	      
+	</div>
+	<div id = "output">
+	<div id = "formTest">
+		
+	      </div>
+	      <div id = "loginTest">
+		
+	      </div>
+	      <div id = "test">
+		
+	      </div>
+	</div>
+	<div id = "interactive">
+		
+	</div>
 </div>
 
-<div id = "footer"></div>
+<div id = "footer">
+
+</div>
 </body>
+
 </html>
