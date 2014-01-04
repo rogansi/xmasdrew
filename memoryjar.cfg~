@@ -1,9 +1,0 @@
-[connection information]
-db = ''
-username = ''
-password = ''
-
-[header information]
-doctype = ''
-stylesheet = ''
-title = ''
