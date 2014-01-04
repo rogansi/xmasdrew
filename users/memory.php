@@ -1,6 +1,6 @@
 <?php
 session_start();
-$init_vars = parse_ini_file('../config/memoryjar.cfg',true);
+$init_vars = parse_ini_file($_SERVER['DOCUMENT_ROOT'].'/htLogin/memoryjar.cfg',true);
 $host=$init_vars['connection information']['server'];
 $memusername=$init_vars['connection information']['username'];
 $database=$init_vars['connection information']['db'];
