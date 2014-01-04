@@ -20,7 +20,7 @@ while($row = mysqli_fetch_assoc($result)){
 <title></title>
 </head>
 <body>
-<h3><? echo $myName." ".$myLastName?></h3>
+<h3><?php echo $myName." ".$myLastName;?></h3>
 <img src = "plupload-2.1.0/examples/<?php echo $_SESSION['uid']; ?>/userpic.jpg" height = "50px" width = "50px" alt = "userpic" />
 <p class = "optionbutton">
 

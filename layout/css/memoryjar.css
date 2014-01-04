@@ -39,9 +39,10 @@ background-color: green;
 /***  Rules for the Memories ***/
 .singlemem{
 	width: 300px;
-	border: inset black 3px;
+	border: inset white 3px;
 	box-shadow: 10px 10px 5px #222222;
-    background-color: rgba(255,255,255,0.5);
+	color: #7cfc00;
+    background-color: rgba(46,139,87,0.3);
 }
 .singlemem p{
 	padding-right: 5px;

@@ -22,7 +22,7 @@ session_start();
 
 <div id = "head">
      <div id = "head_acct"></div>
-     <div id = "head_logo"><button onclick = 'testPHPfunction()'>Press Me</button></div>
+     <div id = "head_logo"><button onclick = 'setupComment(5)'>Press Me</button></div>
      <div id = "head_nav"></div>
 </div>
 

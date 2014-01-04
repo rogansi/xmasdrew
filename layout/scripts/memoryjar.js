@@ -55,6 +55,38 @@ function listMemorys(){
     		$("#test").html(result);
     	});
 }
+//loads comments entered about a memory
+function loadcomments(memID){
+	$.ajax({
+    		type: "POST",
+            url: "users/commentlist.php",
+            data: {"memID":memID}
+    	}).done(function(result){
+    		$("#test").html(result);
+    	});
+}
+//loads ui to enter a new comment
+function setupComment(memID){
+	$.ajax({
+    		type: "POST",
+            url: "users/commentsUI.php",
+            data: {"memID":memID}
+    	}).done(function(result){
+    		$("#test").html(result);
+    	});
+}
+//sends data for comments to be inserted
+function enternewcomment(memID){
+	var commentTitle = $("#insertCommentTitle").val();
+	var commentBody = $("#insertCommentBody").val();
+	$.ajax({
+    		type: "POST",
+            url: "users/insertComment.php",
+            data: {"memID":memID,"title":commentTitle,"body":commentBody}
+    	}).done(function(result){
+    		$("#test").html(result);
+    	});
+}
 function loadPicForm(){
 	$("#test").load("users/picForm.html");
 }
