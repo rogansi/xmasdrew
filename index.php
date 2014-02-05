@@ -28,7 +28,7 @@ session_start();
 
 <div id = "main">
 	<div id = "userNav">
-	      
+	      <?php include("users/detectagent.php"); ?>
 	</div>
 	<div id = "output">
 	<div id = "formTest">

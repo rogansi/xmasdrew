@@ -188,12 +188,18 @@ function cleanString($conn,$string){
 function printComments($conn,$memID){
 	$query = "SELECT * FROM comments WHERE memoryid = $memID";
 	$result = mysqli_query($conn, $query) or die (mysqli_error($conn));
+	if(mysqli_num_rows($result)!=0){
 	while($row = mysqli_fetch_assoc($result)){
-		extract($row);
-		echo "<div id = commentHolder>$commentTitle</div>";
-	}
-	if(isset($_SESSION['uid'])){
-		echo "<br><button onclick = 'setupComment(\"".$memoryid."\")'>Enter New Comment</button>";
-	}
+			extract($row);
+		    echo "<div id = commentHolder>$commentTitle</div>";
+		    if(isset($_SESSION['uid'])){
+		       echo "<br><button onclick = 'setupComment(\"".$memoryid."\")'>Enter New Comment</button>";
+	        }
+		}
+	}else{
+			echo "No entries yet!";
+			echo "<br><button onclick = 'setupComment(\"".$memID."\")'>Enter New Comment</button>";
+		}
+	
 }
 ?>
